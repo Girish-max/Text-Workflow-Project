@@ -1,1 +1,3 @@
 Initial content
+Server Status : Open
+No CE assigned
