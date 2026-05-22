@@ -1,0 +1,28 @@
+name: Process Change Update
+
+on:
+  push:
+    paths:
+      - '**/*.txt'
+
+jobs:
+  detect_changes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: User Details
+        run: |
+          echo "GitHub User: ${{ github.actor }}"
+          git log -1 --pretty=format:"Commit Author: %an <%ae>"
+
+      - name: Changed Files
+        run: |
+          git diff --name-only HEAD~1 HEAD
+
+      - name: TXT Changes
+        run: |
+          git diff HEAD~1 HEAD -- '*.txt'
