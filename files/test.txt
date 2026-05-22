@@ -2,3 +2,5 @@ Initial content
 Server Status : Open
 No CE assigned
 Task assigned to CE
+Task Completed 
+Issue Fixed
